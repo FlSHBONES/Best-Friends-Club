@@ -1,5 +1,4 @@
 import React from "react";
-// import "./wrapper.css";
 
 const CardList = props => {
   const displayTotal = (total, totalAlt) => {
@@ -19,6 +18,7 @@ const CardList = props => {
       </div>
       <div className="mid">
         {props.cards.map(card => (
+          // eslint-disable-next-line
           <img src={card.images.png} height="200px" />
         ))}
       </div>

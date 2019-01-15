@@ -22,7 +22,7 @@ body {
   font-weight: bolder;
   background-color: rgba(0, 24, 0, 0.75);
   border-style: solid;
-    border-width: 5px;
+  border-width: 5px;
   cursor: pointer;
 }
 
@@ -83,17 +83,26 @@ button.bet {
 
 button.bet:hover {
   border-color: gray;
-  color: gray;
+  color: white;
+  width: 110px;
+  height: 110px;
+}
+
+button.bet2_5 {
+  background-color: green;
 }
 
 button.bet5 {
-  background-color: darkblue;
+  background-color: royalblue;
 }
 
 button.bet10 {
   background-color: red;
 }
 
+button.bet25 {
+  background-color: goldenrod;
+}
 button.betDisabled {
   width: 100px;
   height: 100px;

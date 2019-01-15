@@ -18,29 +18,11 @@ class App extends Component {
       playerTotalAlt: 0,
       playerCards: [],
       bet: 0,
-      chips: 1000,
+      chips: 100,
       isPlaying: false,
       gameMsg: null
     };
   }
-
-  //  shuffle(a) {
-  //     var k,
-  //       t,
-  //       j,
-  //       i = a.length,
-  //       rand = Math.random;
-
-  //     // For each element in the array, swap it with a random
-  //     // element (which might be itself)
-  //     while (i--) {
-  //       k = (rand() * (i + 1)) | 0;
-  //       t = a[k];
-  //       a[k] = a[i];
-  //       a[i] = t;
-  //     }
-  //     return a;
-  //   }
 
   checkDeck = deck => {
     return this.state.deck.length < 10 ? deck.concat(shuffle(cards)) : deck;
@@ -58,7 +40,7 @@ class App extends Component {
   calcCardTotal = (cards, eleven) => {
     let sum = Object.keys(cards).reduce(function(total, card) {
       let cardVal = Number(cards[card].cardValue);
-      cardVal = cardVal == 1 && eleven ? 11 : cardVal;
+      cardVal = cardVal === 1 && eleven ? 11 : cardVal;
       return Number(total) + cardVal;
     }, 0);
     return sum;
@@ -83,7 +65,7 @@ class App extends Component {
     t2 = this.calcCardTotal(this.state.playerCards, true);
     min = Math.min(t1, t2);
     if (min > 21) {
-      status = "Player Bust!!!";
+      status = "Over 21 - You Lose!!!!";
     }
 
     this.setState({
@@ -153,8 +135,8 @@ class App extends Component {
     if (Math.min(t1, t2) > 21) {
       status = "Player Wins!!!";
     } else if (
-      (t1 <= 21 && t1 == playerTotal) ||
-      (t2 <= 21 && t2 == playerTotal)
+      (t1 <= 21 && t1 === playerTotal) ||
+      (t2 <= 21 && t2 === playerTotal)
     ) {
       status = "Push";
     } else if (
@@ -179,11 +161,11 @@ class App extends Component {
     let dealerCards = this.state.dealerCards;
     let status = this.checkDealerStatus(dealerCards, playerTotal);
 
-    if (status == "") {
+    if (status === "") {
       do {
         this.drawCards(deck, dealerCards, 1);
         status = this.checkDealerStatus(dealerCards, playerTotal);
-      } while (status == "");
+      } while (status === "");
     }
 
     this.setState(
@@ -201,9 +183,9 @@ class App extends Component {
     let bet = this.state.bet;
     debugger;
     //Calculate chips
-    if (this.state.gameMsg === "Push") {
+    if (this.state.gameMsg === "Push - Tie with the Dealer.") {
       chips = chips + bet;
-    } else if (this.state.gameMsg === "Player Wins!!!") {
+    } else if (this.state.gameMsg === "You Win!!!") {
       chips = chips + bet * 2;
     }
 

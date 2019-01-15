@@ -1,5 +1,4 @@
 import React from "react";
-// import "./wrapper.css";
 
 const Controls = props => {
   const buttonVisible = checkVal => {
@@ -29,6 +28,13 @@ const Controls = props => {
             1
           </button>
           <button
+            onClick={() => props.makeBet(2.5)}
+            className={"bet" + isDisabled() + " bet2_5"}
+            disabled={props.isPlaying}
+          >
+            2.5
+          </button>
+          <button
             onClick={() => props.makeBet(5)}
             className={"bet" + isDisabled() + " bet5"}
             disabled={props.isPlaying}
@@ -41,6 +47,14 @@ const Controls = props => {
             disabled={props.isPlaying}
           >
             10
+          </button>
+
+          <button
+            onClick={() => props.makeBet(25)}
+            className={"bet" + isDisabled() + " bet25"}
+            disabled={props.isPlaying}
+          >
+            25
           </button>
         </span>
         <span style={{ paddingLeft: 40 }}>
