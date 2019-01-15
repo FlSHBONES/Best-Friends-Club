@@ -2,8 +2,9 @@ body {
   color: white;
   font-size: 20px;
   font-family: helvetica;
-  /* background-color: darkgreen; */
+  background-color: royalblue;
   background-image: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/10675355/The_Verge_Cubeometry_Wallpaper_Landscape.0.png");
+  background-size: 100%;
 }
 
 .backdrop {
@@ -21,7 +22,8 @@ body {
   padding: 100px 0;
   font-size: 5em;
   font-weight: bolder;
-  background-color: rgba(0, 24, 0, 0.75);
+  background-color: black;
+  border-color: darkred;
   border-style: solid;
   border-width: 5px;
   cursor: pointer;
@@ -78,7 +80,7 @@ button.bet {
   font-size: 20px;
   font-weight: bolder;
   border-radius: 50px;
-  border: 8px dashed black;
+  border: 8.5px dashed rgb(37, 18, 18);
   margin: 4px;
 }
 
@@ -125,7 +127,7 @@ button.betDisabled {
   background: rgb(57, 63, 136);
   padding: 10px 60px;
   border-radius: 10px;
-
+  border-color: whitesmoke;
   opacity: 0.95;
 }
 
