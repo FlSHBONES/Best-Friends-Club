@@ -1,0 +1,80 @@
+import React from "react";
+// import "./wrapper.css";
+
+const Controls = props => {
+  const buttonVisible = checkVal => {
+    return props.isPlaying === checkVal ? "hide" : "";
+  };
+
+  const isDisabled = () => {
+    return props.isPlaying ? "Disabled" : "";
+  };
+
+  const isDealDisabled = () => {
+    return props.bet === 0 ? "Disabled" : "";
+  };
+
+  return (
+    <div>
+      <div className="mid">
+        <span className="numDisplay">Bet: {props.bet}</span>
+      </div>
+      <div className="mid">
+        <span>
+          <button
+            onClick={() => props.makeBet(1)}
+            className={"bet" + isDisabled()}
+            disabled={props.isPlaying}
+          >
+            1
+          </button>
+          <button
+            onClick={() => props.makeBet(5)}
+            className={"bet" + isDisabled() + " bet5"}
+            disabled={props.isPlaying}
+          >
+            5
+          </button>
+          <button
+            onClick={() => props.makeBet(10)}
+            className={"bet" + isDisabled() + " bet10"}
+            disabled={props.isPlaying}
+          >
+            10
+          </button>
+        </span>
+        <span style={{ paddingLeft: 40 }}>
+          <button
+            className={"btn" + isDealDisabled() + " " + buttonVisible(true)}
+            onClick={() => props.dealClicked()}
+          >
+            Deal
+          </button>
+          <button
+            className={"btn " + buttonVisible(false)}
+            onClick={() => props.hitClicked()}
+          >
+            Hit
+          </button>
+          <button
+            className={"btn " + buttonVisible(false)}
+            onClick={() => props.stayClicked()}
+          >
+            Stay
+          </button>
+          <button
+            className={"btn " + buttonVisible(true)}
+            onClick={() => props.clearBet()}
+          >
+            Clear
+          </button>
+        </span>
+        <div style={{ marginTop: 30 }}>
+          <span className="totalDisplay">Chips:{props.chips}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Controls;
