@@ -2,7 +2,8 @@ body {
   color: white;
   font-size: 20px;
   font-family: helvetica;
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
+  background-image: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/10675355/The_Verge_Cubeometry_Wallpaper_Landscape.0.png");
 }
 
 .backdrop {
@@ -121,15 +122,16 @@ button.betDisabled {
 }
 
 .numDisplay {
-  background: #000;
+  background: rgb(57, 63, 136);
   padding: 10px 60px;
-  border-radius: 25px;
-  opacity: 0.65;
+  border-radius: 10px;
+
+  opacity: 0.95;
 }
 
 .totalDisplay {
-  background: #000;
+  background: rgb(57, 63, 136);
   padding: 20px 280px;
   border-radius: 25px;
-  opacity: 0.75;
+  opacity: 0.95;
 }
