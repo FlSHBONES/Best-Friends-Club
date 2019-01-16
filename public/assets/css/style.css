@@ -4,25 +4,64 @@ html,body,h1,h2,h3,h4,h5 {
 
 .title-bar {
     height: 75px;
+    overflow: auto;
+    position: fixed;
+    top: 0px;
+    z-index:1;
 }
+
+.game-area {
+    position: fixed;
+    width: 75%;
+    text-align: center;
+    left: 250px;
+    top: 100px;
+}
+
+#mySidebar {
+    position: absolute;
+    top: 75px;
+    bottom: 0;
+    z-index:3;
+    width:200px;
+}
+
 #bjack-logo {
     width: 125px;
 }
 
 #bjack-title {
-    font-size: 36px
+    height: 100%;
+    margin-left: 30px;
 }
+
+.w3-bar-block {
+    height: 100%;
+}
+
 .player-box {
-    padding-bottom: 25% !important
+    height: 25%;
+    color: white;
+}
+
+.player1 {
+    background-color: #373b84;
+}
+
+.player2 {
+    background-color: #df773e;
+}
+
+.player3 {
+    background-color: #1593ac;
+}
+
+.player4 {
+    background-color: #95e59c;
 }
 
 #main-app {
     height: 500px;
-}
-
-body {
-    background-image: url("./assets/img/FH_Gaming_Main-new.jpg"); 
-    background-size: cover
 }
 
 .stats-box,

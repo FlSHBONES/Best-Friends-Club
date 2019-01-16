@@ -5,6 +5,8 @@ import GameMessage from "./components/gamemessage";
 import shuffle from "./components/shuffle";
 import cards from "./cards.json";
 import "./App.css";
+import TitleBar from "./components/titlebar";
+import SideBar from "./components/sidebar";
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +40,7 @@ class App extends Component {
   };
 
   calcCardTotal = (cards, eleven) => {
-    let sum = Object.keys(cards).reduce(function(total, card) {
+    let sum = Object.keys(cards).reduce(function (total, card) {
       let cardVal = Number(cards[card].cardValue);
       cardVal = cardVal === 1 && eleven ? 11 : cardVal;
       return Number(total) + cardVal;
@@ -207,33 +209,37 @@ class App extends Component {
   render() {
     return (
       <div>
-        <CardList
-          cardDisplay="Dealer:"
-          cardTotal={this.state.dealerTotal}
-          cardTotalAlt={this.state.dealerTotalAlt}
-          cards={this.state.dealerCards}
-        />
-        <CardList
-          cardDisplay="Player:"
-          cardTotal={this.state.playerTotal}
-          cardTotalAlt={this.state.playerTotalAlt}
-          cards={this.state.playerCards}
-        />
-        <Controls
-          bet={this.state.bet}
-          chips={this.state.chips}
-          isPlaying={this.state.isPlaying}
-          makeBet={this.makeBet}
-          dealClicked={this.dealClicked}
-          hitClicked={this.hitClicked}
-          stayClicked={this.stayClicked}
-          clearBet={this.clearBet}
-        />
-        {this.state.gameMsg ? (
-          <GameMessage msg={this.state.gameMsg} resetClicked={this.resetGame} />
-        ) : (
-          false
-        )}
+        <TitleBar />
+        <SideBar />
+        <div className="game-area">
+          <CardList
+            cardDisplay="Dealer:"
+            cardTotal={this.state.dealerTotal}
+            cardTotalAlt={this.state.dealerTotalAlt}
+            cards={this.state.dealerCards}
+          />
+          <CardList
+            cardDisplay="Player:"
+            cardTotal={this.state.playerTotal}
+            cardTotalAlt={this.state.playerTotalAlt}
+            cards={this.state.playerCards}
+          />
+          <Controls
+            bet={this.state.bet}
+            chips={this.state.chips}
+            isPlaying={this.state.isPlaying}
+            makeBet={this.makeBet}
+            dealClicked={this.dealClicked}
+            hitClicked={this.hitClicked}
+            stayClicked={this.stayClicked}
+            clearBet={this.clearBet}
+          />
+          {this.state.gameMsg ? (
+            <GameMessage msg={this.state.gameMsg} resetClicked={this.resetGame} />
+          ) : (
+              false
+            )}
+        </div>
       </div>
     );
   }
