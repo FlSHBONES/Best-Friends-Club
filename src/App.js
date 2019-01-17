@@ -208,7 +208,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <TitleBar />
         <SideBar />
         <div className="game-area">
